@@ -1,0 +1,118 @@
+{% extends 'layout/thuake.html' %}
+{% block title %} Trang Chủ{% endblock %}
+{% block content %}
+<h1 class="subject text-center">Quản Lý Sản Phẩm</h1>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f9;
+        margin: 30px;
+    }
+
+    .subject {
+        text-align: center;
+        color: #333;
+        margin-bottom: 25px;
+    }
+
+    .top-bar {
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    th {
+        background: #343a40;
+        color: white;
+        padding: 15px;
+    }
+
+    td {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    tr:hover {
+        background: #f8f9fa;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .btn {
+        padding: 8px 14px;
+        border-radius: 5px;
+        color: white;
+        display: inline-block;
+    }
+
+    .add {
+        background: #28a745;
+    }
+
+    .add:hover {
+        background: #218838;
+    }
+
+    .delete {
+        background: #dc3545;
+    }
+
+    .delete:hover {
+        background: #c82333;
+    }
+
+    img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+</style>
+
+<div class="top-bar">
+    <a href="/them" class="btn btn-success">Thêm sản phẩm</a>
+</div>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Tên Sản Phẩm</th>
+        <th>Mô Tả</th>
+        <th>Giá</th>
+        <th>Mã Sản Phẩm</th>
+        <th> Xoá Sản Phẩm</th>
+        <th> Cập Nhật </th>
+    </tr>
+{% for s in quanly %}
+<tr>
+    <td>{{ s.id }}</td>
+    <td>{{ s.name }}</td>
+    <td>{{ s.ghichu }}</td>
+    <td>{{ s.giatien }}</td>
+    <td>{{ s.masanpham }}</td>
+    
+     <td>
+        <a href="/delete/{{s.id}}" class="btn btn-success"
+        onclick="return confirm('bạn muốn xoá ko')"> Xóa
+        </a>
+    </td>
+
+    <td>
+        <a class="btn btn-success" href="/capnhatsanpham"> Cập Nhật </a>
+    </td>
+
+
+</tr>
+
+{% endfor %}
+
+{% endblock %}

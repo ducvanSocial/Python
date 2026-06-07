@@ -1,0 +1,49 @@
+{% extends 'layout/thuake.html' %}
+{% block title %} Trang Chủ{% endblock %}
+{% block content %}
+<div style="width: 350px; margin: 50px auto;">
+    <h1> Thêm Sản Phẩm</h1>
+
+    <form method="get">
+        <div class="form-group mb-3">
+            <label>Tên Sản Phẩm</label>
+            <input type="text" class="form-control"
+                   value="{{ lay_id.name }}"
+                   name="name" required>
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Nhập Mô Tả</label>
+            <input type="text" class="form-control"
+                   value="{{ lay_id.ghichu}}"
+                   name="description" required>
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Giá tiền</label>
+            <input type="number" class="form-control"
+                   value="{{ lay_id.giatien }}"
+                   name="price" required>
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Ảnh</label>
+            <input type="file" class="form-control"
+                   name="anh"
+                   accept="anh/*">
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Mã Sản Phẩm</label>
+            <input type="number" class="form-control"
+                   value="{{ lay_id.masanpham }}"
+                   name="category_id" required>
+        </div>
+
+        <input type="submit" value="Cập Nhật"
+               class="btn btn-outline-success">
+    </form>
+
+    <a href="/" class="btn btn-secondary mt-2">Quay lại trang chủ</a>
+</div>
+{% endblock %}

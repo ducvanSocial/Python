@@ -1,0 +1,27 @@
+{% extends 'layout/thuake.html' %}
+
+{% block title %} Trang Chủ{% endblock %}
+
+{% block content %}
+<h1 class="subject text-center my-4">Cửa Hàng Bán Sản Phẩm </h1>
+    <div class="row">
+        <td>
+            <input name="keyword">
+        </td>
+        {% for p in sp %}
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <img src="/static/{{p.anh}}" alt="{{ p.name }}" width="200">
+                <div class="card-body">
+                    <h5 class="card-title">{{ p.name}}</h5>
+                    <p class="">{{ p.ghichu}}</p>
+                    <p class="">{{ p.giatien }}</p>
+                    <a href="/thanhtoan/{{p.id}}" class="btn btn-outline-success">Đặt Hàng</a>
+                </div> 
+            </div> 
+        </div> 
+        {% endfor %}
+    </div> 
+</div> 
+
+{% endblock %}

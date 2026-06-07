@@ -1,0 +1,73 @@
+/* Tổng thể bảng sản phẩm nhìn sang và hiện đại hơn */
+.product {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Tạo bóng đổ nhẹ cho bảng */
+    border-radius: 8px;
+    overflow: hidden; /* Bo góc mượt mà cho bảng */
+}
+
+/* Căn chỉnh các ô vuông vức, đổi màu viền tinh tế hơn */
+.product th,
+.product td {
+    border: 1px solid #eef1f6; /* Màu viền xám nhẹ thanh lịch */
+    padding: 12px 10px;
+    text-align: center;
+    vertical-align: middle;
+    color: #4a4a4a;
+    font-size: 15px;
+}
+
+/* Hàng tiêu đề nổi bật */
+.product th {
+    background-color: #f8f9fa; /* Nền xám rất nhẹ */
+    font-weight: 600;
+    color: #2d3748;
+}
+
+/* Hiệu ứng highlight nhẹ khi di chuột vào từng hàng trong bảng */
+.product tbody tr:hover {
+    background-color: #fcfcfc;
+}
+
+/* Cố định cột chứa ảnh */
+.col-img { 
+    width: 110px; 
+}
+
+/* Giữ ảnh nhỏ gọn chuẩn đét 80px + Hiệu ứng xịn */
+.product img {
+    width: 80px !important;
+    height: 80px !important;
+    max-width: 80px !important;
+    max-height: 80px !important;
+    object-fit: cover;
+    border-radius: 6px; /* Bo góc ảnh mượt hơn */
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease-in-out; /* Tạo hiệu ứng chuyển động mượt */
+}
+
+/* Khi di chuột vào ảnh sẽ phóng to nhẹ lên một chút nhìn rất pro */
+.product img:hover {
+    transform: scale(1.06);
+    border-color: #3182ce; /* Đổi viền ảnh sang màu xanh nhẹ */
+}
+
+/* Định dạng cho Card sản phẩm (nếu mày có dùng ở trang khác) */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    background: #fff;
+}
+
+.card img {
+    width: 100%;
+    max-height: 250px; /* Thu gọn lại một chút cho cân đối card */
+    object-fit: cover;
+}

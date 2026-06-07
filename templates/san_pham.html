@@ -1,0 +1,36 @@
+{% extends 'layout/thuake.html' %}
+
+{% block title %}Trang Chủ{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="/static/images/style.css">
+
+<h1 class="subject text-center my-4">Tất Cả Sản Phẩm</h1>
+
+<table class="product">
+    <thead>
+        <tr>
+            <th class="col-img">Ảnh</th>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
+            <th>Mô tả</th>
+            <th>Giá bán</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in danh_muc %}
+        <tr>
+            <td class="col-img">
+                <a href="/chitietsp/{{ p.id }}">
+                    <img src="/static/{{ p.anh }}" alt="{{ p.name }}">
+                </a>
+            </td>
+            <td>{{ p.id }}</td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.ghichu }}</td>
+            <td> {{ p.giatien }}</td>  
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

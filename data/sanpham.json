@@ -1,0 +1,36 @@
+   {
+        "name": "Áo thun",
+        "description": "Áo thun cotton",
+        "price": 199000,
+        "image": "images/aothun1.jpg",
+        "category_id": 1
+    },
+    {
+        "name": "Áo sơ mi",
+        "description": "Chất liệu kate cao cấp",
+        "price": 349000,
+        "image": "images/aosomi.jpg",
+        "category_id": 2
+    },
+    {
+        "name": "Quần jean",
+        "description": "Quần rộng",
+        "price": 499000,
+        "image": "images/quanjean.jpg",
+        "category_id": 3
+    },
+    {
+        "name": "Áo Gió",
+        "description": "Phong cách năng động",
+        "price": 699000,
+        "image": "images/aokhoac1.jpg",
+        "category_id": 4
+    },
+    {
+        "name": "Áo Len",
+        "description": "Giữ ấm mùa đông",
+        "price": 599000,
+        "image": "images/aolen.jpg",
+        "category_id": 4
+    }
+
