@@ -1,7 +1,7 @@
 from flask import render_template, request, url_for, redirect
 from saleapp import app, db
 from saleapp import utils
-from saleapp.utils import load_san_pham, load_masp, add_user, read_users, themsanpham ,  User, Danhmucsanpham, dangnhap, trasp, thanhtoan,  read_product_by
+from saleapp.utils import User, Danhmucsanpham, dangnhap
 
 
 
@@ -52,7 +52,9 @@ def dang_ki():
         name = request.form.get('name')
         username = request.form.get('username')
         password = request.form.get('password')
-        add_user(name, username, password)
+        user = User(name=name, ten=username, matkhau=password)
+        db.session.add(user)
+        db.session.commit()
     return render_template('dang_ki.html')
 
 
@@ -65,7 +67,9 @@ def them():
         giatien = request.form.get('price')
         masanpham = request.form.get('category_id')
         anh = request.files.get('image')
-        themsanpham(name=name, ghichu=ghichu, giatien=giatien, anh=anh, masanpham=masanpham)
+        p = Danhmucsanpham(name=name, ghichu=ghichu, giatien=giatien, anh=anh, masanpham=masanpham)
+        db.session.add(p)
+        db.session.commit()
     return render_template('themsp.html')
 
         
