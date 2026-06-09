@@ -89,6 +89,20 @@ def thanhtoanhoan(id):
     return render_template('thanhtoan.html',sanpham=sanpham)
 
 
+@app.route("/capnhat/<int:id>", methods=["GET", "POST"])
+def update_student(id):
+    sapnhatsanpham = Danhmucsanpham.query.get_or_404(id)
+    if request.method == "POST":
+        sapnhatsanpham.name = request.form["name"]
+        sapnhatsanpham.ghichu = request.form["description"]
+        sapnhatsanpham.giatien = request.form["price"]
+        sapnhatsanpham.masanpham = request.form["category_id"]
+        sapnhatsanpham.anh = request.files["image"]
+        db.session.commit()
+        return redirect(url_for('quanly'))
+    
+    return render_template("capnhatsp.html", sapnhatsanpham=sapnhatsanpham)
+
 if __name__ == "__main__":
     print(app.url_map)
     app.run(debug=True)
