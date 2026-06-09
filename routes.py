@@ -16,14 +16,21 @@ def sanphams():
     maid = request.args.get("masanpham")
     ten = request.args.get("keyword")
     giabatdau = request.args.get("from_price")
-    danh_muc = load_san_pham(maid=maid, ten=ten,giabatdau=giabatdau)
-    return render_template("san_pham.html", danh_muc=danh_muc)
+    products = Danhmucsanpham.query
+    if maid:
+        products = products.filter(Danhmucsanpham.masanpham == int(maid))
+    if ten:
+        products = products.filter(Danhmucsanpham.name == ten)
+    if giabatdau:
+        products = products.filter(Danhmucsanpham.giatien >= (giabatdau))
+    return render_template("san_pham.html", danh_muc=products)
+    
 
 
 
 @app.route("/chitietsp/<int:product_id>")
 def xemchitietsp(product_id):
-    products = trasp(product_id)
+    products = Danhmucsanpham.query.get(id)
     return render_template("chitietsanpham.html", products=products)
 
 
@@ -78,7 +85,7 @@ def quanly():
 
 @app.route('/thanhtoan/<int:id>')
 def thanhtoanhoan(id):
-    sanpham = trasp(id)
+    sanpham = Danhmucsanpham.query.get(id)
     return render_template('thanhtoan.html',sanpham=sanpham)
 
 
